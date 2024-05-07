@@ -10,8 +10,8 @@ services:
     ports:
       - "8180:8080"
       - "9898:8888"
-    volumes:
-      - ./ext/audit-log-browser-share-2.0.0.jar:/usr/local/tomcat/webapps/share/WEB-INF/lib/audit-log-browser-share-2.0.0.jar
+    # volumes:
+    #   - ./ext/audit-log-browser-share-2.0.0.jar:/usr/local/tomcat/webapps/share/WEB-INF/lib/audit-log-browser-share-2.0.0.jar
   acs:
     # image: quay.io/alfresco/alfresco-content-repository:7.1.1.10
     build: ./build/platform
@@ -86,7 +86,8 @@ services:
       - "8888:8888"
     volumes:
       - acs-volume:/usr/local/tomcat/alf_data
-      - ./ext/audit-log-browser-platform-2.0.0.jar:/usr/local/tomcat/webapps/alfresco/WEB-INF/lib/audit-log-browser-platform-2.0.0.jar
+      # - ./audit:/usr/local/tomcat/webapps/alfresco/WEB-INF/classes/alfresco/extension/audit
+      # - ./ext/audit-log-browser-platform-2.0.0.jar:/usr/local/tomcat/webapps/alfresco/WEB-INF/lib/audit-log-browser-platform-2.0.0.jar
     depends_on:
       - postgres
       - fakesmtp
